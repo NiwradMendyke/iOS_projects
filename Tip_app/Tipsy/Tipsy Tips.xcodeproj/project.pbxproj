@@ -14,6 +14,8 @@
 		BD8DCDEE1D48552600CC779E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD8DCDEC1D48552600CC779E /* LaunchScreen.storyboard */; };
 		BD8DCDF91D48552600CC779E /* TipsyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8DCDF81D48552600CC779E /* TipsyTests.swift */; };
 		BD8DCE041D48552600CC779E /* TipsyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8DCE031D48552600CC779E /* TipsyUITests.swift */; };
+		BD95919A1D49E55F00831263 /* TaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9591991D49E55F00831263 /* TaxViewController.swift */; };
+		BDAB55C61D49BF2C003EE2E8 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB55C51D49BF2C003EE2E8 /* TipViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		BD8DCDFF1D48552600CC779E /* Tipsy Tips.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tipsy Tips.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8DCE031D48552600CC779E /* TipsyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsyUITests.swift; sourceTree = "<group>"; };
 		BD8DCE051D48552600CC779E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD9591991D49E55F00831263 /* TaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxViewController.swift; sourceTree = "<group>"; };
+		BDAB55C51D49BF2C003EE2E8 /* TipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 		BD8DCDD71D48552600CC779E = {
 			isa = PBXGroup;
 			children = (
+				BD9591991D49E55F00831263 /* TaxViewController.swift */,
+				BDAB55C51D49BF2C003EE2E8 /* TipViewController.swift */,
 				BD8DCDE21D48552600CC779E /* Tipsy */,
 				BD8DCDF71D48552600CC779E /* TipsyTests */,
 				BD8DCE021D48552600CC779E /* TipsyUITests */,
@@ -257,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD8DCDE61D48552600CC779E /* ViewController.swift in Sources */,
+				BDAB55C61D49BF2C003EE2E8 /* TipViewController.swift in Sources */,
+				BD95919A1D49E55F00831263 /* TaxViewController.swift in Sources */,
 				BD8DCDE41D48552600CC779E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +490,7 @@
 				BD8DCE0A1D48552600CC779E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD8DCE0B1D48552600CC779E /* Build configuration list for PBXNativeTarget "Tipsy TipsTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +499,7 @@
 				BD8DCE0D1D48552600CC779E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BD8DCE0E1D48552600CC779E /* Build configuration list for PBXNativeTarget "Tipsy TipsUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +508,7 @@
 				BD8DCE101D48552600CC779E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

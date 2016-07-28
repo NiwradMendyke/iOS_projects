@@ -15,11 +15,29 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bill_Field: UITextField!
     
-    @IBOutlet weak var tip_Type: UISegmentedControl!
+    var tip_amount = 0.15
+    var fromView = false
+    var bill_value = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.bill_Field.becomeFirstResponder()
+        
+        if (fromView) {
+            bill_Field.text = bill_value
+            change_Values()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "to_tipView") {
+            let svc = segue.destinationViewController as! TipViewController
+            
+            fromView = false
+            svc.toPass = bill_Field.text
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,10 +50,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calc_Tip(sender: AnyObject) {
-        let tip_percents = [0.1, 0.15, 0.2]
-        
+        change_Values()
+    }
+    
+    func change_Values() {
         let bill = Double(bill_Field.text!) ?? 0
-        let tip = bill * tip_percents[tip_Type.selectedSegmentIndex]
+        let tip = bill * tip_amount
         let total = bill + tip
         
         tip_Label.text = String(format: "$%.2f", tip)
