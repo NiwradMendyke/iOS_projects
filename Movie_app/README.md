@@ -16,3 +16,4 @@ Video Walkthrough of Implemented Stories:
 
 ![Video Walkthrough](http://i1313.photobucket.com/albums/t547/Darwin_Mendyke/move_app_recording_zpswfifxbmx.gif)
 
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
