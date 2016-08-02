@@ -13,5 +13,5 @@ Completed User Stories:
  * [x] Optional: Customize the selection effect of the cell
  
 Video Walkthrough of Implemented Stories:
-http://i1313.photobucket.com/albums/t547/Darwin_Mendyke/move_app_recording_zpswfifxbmx.gif
+![Video Walkthrough](http://i1313.photobucket.com/albums/t547/Darwin_Mendyke/move_app_recording_zpswfifxbmx.gif)
 
