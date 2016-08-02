@@ -1,4 +1,4 @@
-[B]The Talkies[/B]
+The Talkies
 
 Project 2 for the iOS Training Course. 
 A basic movie guide app that gets a shows the movies currently in theaters. For each movie, the app shows the movie poster, the release date, and a general overview of the plot. 
