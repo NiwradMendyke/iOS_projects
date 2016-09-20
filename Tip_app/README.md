@@ -15,7 +15,14 @@ Completed user stories:
  * [x] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
 
  * [x] Used multiple views
+ * [x] Animates changes between views
+ * [x] Added color theme
+ * [x] Detects and uses local currency symbol
  * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
  
 Video Walkthrough of implemented stories
+
+![Video Walkthrough](http://i1313.photobucket.com/albums/t547/Darwin_Mendyke/tip_app_recording2_zps6dpxp7hg.gif)
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
