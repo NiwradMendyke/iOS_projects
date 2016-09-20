@@ -22,3 +22,7 @@ Completed user stories:
  
 Video Walkthrough of implemented stories
 
+![Video Walkthrough](http://i1313.photobucket.com/albums/t547/Darwin_Mendyke/tip_app_recording2_zps6dpxp7hg.gif)
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
