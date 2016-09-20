@@ -5,6 +5,6 @@ Time spent: 5 hours
  
 Video Walkthrough of Implemented Stories:
 
-![Video Walkthrough]
+![Video Walkthrough] (http://i1313.photobucket.com/albums/t547/Darwin_Mendyke/tumblr_recording_zps8fkf7z4x.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
