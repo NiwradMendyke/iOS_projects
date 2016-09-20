@@ -47,17 +47,15 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         return 1
     }
     
-    /*func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }*/
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
         
-        tableView.rowHeight = 300;
+        tableView.rowHeight = 350;
         
         let post = posts[indexPath.section]
         
+        let time = post[("date")] as! String
+        cell.timeLabel.text = time
         if let photos = post.valueForKeyPath("photos") as? [NSDictionary] {
             let imageUrlString = photos[0].valueForKeyPath("original_size.url") as? String
             
@@ -91,10 +89,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         profileView.setImageWithURL(NSURL(string:"https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/avatar")!)
         headerView.addSubview(profileView)
         
-        // Add a UILabel for the date here
-        // Use the section number to get the right URL
-        // let label = ...
-        
         return headerView
     }
     
@@ -107,9 +101,9 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        let cell = sender as! PhotoCell
+        let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
-        let post = posts[(indexPath?.row)!]
+        let post = posts[(indexPath!.section)]
         
         let detailView = segue.destinationViewController as? DetailsViewController
         
@@ -151,7 +145,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             completionHandler: { (data, response, error) in
                 if let data = data {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(data, options:[]) as? NSDictionary {
-                        print("responseDictionary: \(responseDictionary)")
+                        //print("responseDictionary: \(responseDictionary)")
                                                                                 
                         // This is how we get the 'response' field
                         let responseFieldDictionary = responseDictionary["response"] as! NSDictionary

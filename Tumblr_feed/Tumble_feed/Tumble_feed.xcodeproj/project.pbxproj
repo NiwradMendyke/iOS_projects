@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		486B02A8B5C4835CD1D08E57 /* Pods_Tumble_feed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C14A090CE273CF89BE326B4 /* Pods_Tumble_feed.framework */; };
+		BD8EB7121D90F79C005396F8 /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EB7111D90F79C005396F8 /* FullScreenViewController.swift */; };
 		BDA422EF1D59761300BEE3E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA422EE1D59761300BEE3E3 /* AppDelegate.swift */; };
 		BDA422F41D59761300BEE3E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA422F21D59761300BEE3E3 /* Main.storyboard */; };
 		BDA422F61D59761300BEE3E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA422F51D59761300BEE3E3 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		2C14A090CE273CF89BE326B4 /* Pods_Tumble_feed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tumble_feed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		637058E695EE2EA2D0601E90 /* Pods-Tumble_feed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumble_feed.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tumble_feed/Pods-Tumble_feed.release.xcconfig"; sourceTree = "<group>"; };
+		BD8EB7111D90F79C005396F8 /* FullScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		BDA422EB1D59761300BEE3E3 /* Tumble_feed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumble_feed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA422EE1D59761300BEE3E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDA422F31D59761300BEE3E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				BDA423041D59815700BEE3E3 /* PhotoCell.swift */,
 				BDA423001D5979B000BEE3E3 /* PhotosViewController.swift */,
 				BDA423061D59973200BEE3E3 /* DetailsViewController.swift */,
+				BD8EB7111D90F79C005396F8 /* FullScreenViewController.swift */,
 				BDA422F21D59761300BEE3E3 /* Main.storyboard */,
 				BDA422F51D59761300BEE3E3 /* Assets.xcassets */,
 				BDA422F71D59761300BEE3E3 /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8EB7121D90F79C005396F8 /* FullScreenViewController.swift in Sources */,
 				BDA423011D5979B000BEE3E3 /* PhotosViewController.swift in Sources */,
 				BDA423051D59815700BEE3E3 /* PhotoCell.swift in Sources */,
 				BDA422EF1D59761300BEE3E3 /* AppDelegate.swift in Sources */,

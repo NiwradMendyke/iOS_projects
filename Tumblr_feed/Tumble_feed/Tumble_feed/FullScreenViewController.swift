@@ -9,6 +9,8 @@
 import UIKit
 
 class FullScreenViewController: UIViewController {
+    
+    @IBOutlet var fullImage: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

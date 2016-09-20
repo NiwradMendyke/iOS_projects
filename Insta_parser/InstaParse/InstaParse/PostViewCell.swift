@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class PostViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel!
+    
+    @IBOutlet weak var photoView: PFImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +27,11 @@ class PostViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    var instagramPost: PFObject! {
+        didSet {
+            self.photoView.file = instagramPost["image"] as? PFFile
+            self.photoView.loadInBackground()
+        }
+    }
 }

@@ -15,9 +15,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var bill_Field: UITextField!
     
+    @IBOutlet weak var tip_text: UIButton!
+    
     var tip_amount = 0.15
     var fromView = false
     var bill_value = ""
+    var tip_amount_label = "Below Average"
+    //var currency = String(NSLocale.currentLocale().displayNameForKe)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,8 @@ class ViewController: UIViewController {
     }
     
     func change_Values() {
+        //print(currency)
+        tip_text.setTitle(tip_amount_label, forState: UIControlState.Normal)
         let bill = Double(bill_Field.text!) ?? 0
         let tip = bill * tip_amount
         let total = bill + tip

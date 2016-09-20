@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class CaptionEditController: UIViewController {
 
+    @IBOutlet var imageView: UIImageView!
+    
+    @IBOutlet weak var captionBox: UITextField!
+    
+    var passedImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        imageView.image = passedImage
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +29,17 @@ class CaptionEditController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        print(captionBox.text!)
+        
+        Post.postUserImage(imageView.image, withCaption: captionBox.text!) {
+            (success: Bool, error: NSError?) -> Void in
+            if success == true {
+                print("Upload successful")
+            } else {
+                print(error)
+            }
+        }
     }
-    */
-
 }

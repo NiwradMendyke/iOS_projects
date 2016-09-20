@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EQo-Ep-KW6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HZu-8e-0IL">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -41,13 +42,15 @@
                                 <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hm-Uw-UXb">
-                                <rect key="frame" x="37" y="183" width="206" height="59"/>
+                                <rect key="frame" x="37" y="183" width="267" height="59"/>
                                 <color key="backgroundColor" red="0.41984839623900583" green="1" blue="0.6920685933797468" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <inset key="contentEdgeInsets" minX="9" minY="0.0" maxX="12" maxY="0.0"/>
-                                <state key="normal" title="Tip Amount?"/>
+                                <state key="normal" title="Below Average"/>
                                 <connections>
-                                    <segue destination="Xyb-lx-cqa" kind="show" identifier="to_tipView" id="4fc-Om-Qy7"/>
+                                    <segue destination="Xyb-lx-cqa" kind="popoverPresentation" identifier="to_tipView" popoverAnchorView="6hm-Uw-UXb" id="4fc-Om-Qy7">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqd-ld-tWe">
@@ -60,6 +63,15 @@
                                     <action selector="calc_Tip:" destination="BYZ-38-t0r" eventType="editingChanged" id="gOY-9h-ZIa"/>
                                 </connections>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOK-O5-HMd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.63137573629999999" green="1" blue="0.76024172560000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="0.0" y="0.40000000000000002" width="1" height="1"/>
+                                <color key="barTintColor" red="0.75143740339999998" green="1" blue="0.88528463160000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.077873543826596281" green="0.95621318717277481" blue="0.69113482151169259" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -73,6 +85,7 @@
                     <connections>
                         <outlet property="bill_Field" destination="hqd-ld-tWe" id="Ljz-HO-xu9"/>
                         <outlet property="tip_Label" destination="4lw-mk-CYO" id="LrP-NQ-F1T"/>
+                        <outlet property="tip_text" destination="6hm-Uw-UXb" id="Kfi-0v-NNo"/>
                         <outlet property="total_Label" destination="MpC-l2-kbp" id="ERm-xh-rFE"/>
                     </connections>
                 </viewController>
@@ -83,7 +96,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1250.5" y="386.5"/>
+            <point key="canvasLocation" x="2649.5" y="386.5"/>
         </scene>
         <!--Tip View Controller-->
         <scene sceneID="1WR-Ra-uJf">
@@ -107,7 +120,7 @@
                                     <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="seriously" id="EHx-xm-J2p"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="seriously" id="fyY-Tj-7hI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBN-QK-8e9">
@@ -120,7 +133,7 @@
                                     <color key="titleShadowColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="dirt_cheap" id="63Z-lg-0Zu"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="dirt_cheap" id="99w-fb-dcW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GI9-He-kyc">
@@ -133,7 +146,7 @@
                                     <color key="titleShadowColor" red="0.48634657780000001" green="0.77752781410000005" blue="0.58741724480000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="kinda_cheap" id="LKx-a9-AJD"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="kinda_cheap" id="4c2-V9-Cqm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-xS-WDe">
@@ -146,7 +159,7 @@
                                     <color key="titleShadowColor" red="0.48634657780000001" green="0.77752781410000005" blue="0.58741724480000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="below_avg" id="Jb1-tA-MLq"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="below_avg" id="AEW-ys-ja0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHC-Hh-I6I">
@@ -159,7 +172,7 @@
                                     <color key="titleShadowColor" red="0.48634657780000001" green="0.77752781410000005" blue="0.58741724480000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="above_avg" id="z5t-Ec-FJE"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="above_avg" id="EUe-Xr-89b"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIj-Rs-dVK">
@@ -172,7 +185,7 @@
                                     <color key="titleShadowColor" red="0.48634657780000001" green="0.77752781410000005" blue="0.58741724480000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="sorta_generous" id="uhj-Qm-s3h"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="sorta_generous" id="AMO-rb-veB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9M-HM-HUU">
@@ -185,7 +198,7 @@
                                     <color key="titleShadowColor" red="0.48634657780000001" green="0.77752781410000005" blue="0.58741724480000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="super_generous" id="O5D-6Y-hEO"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="super_generous" id="ZIc-lk-P0T"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRd-d0-tEY">
@@ -198,9 +211,15 @@
                                     <color key="titleShadowColor" red="0.48634657780000001" green="0.77752781410000005" blue="0.58741724480000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="dough" id="KL4-90-Lsw"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="dough" id="zbZ-Mk-ZXp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How Generous you Feelin?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTa-0n-dPD">
+                                <rect key="frame" x="29" y="20" width="316" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.077873543830000003" green="0.95621318720000004" blue="0.69113482150000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -209,28 +228,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uB6-X5-Gn3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912.5" y="100.5"/>
+            <point key="canvasLocation" x="3469.5" y="16.5"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Hmb-88-ZGW">
+        <scene sceneID="lay-Gr-BKD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EQo-Ep-KW6" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HZu-8e-0IL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yrl-JG-bIF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rn4-P0-Hpi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="u3a-7E-1kN"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZoK-pn-Qbe"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dXF-jT-SQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cf-wF-aJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204.375" y="325.35211267605632"/>
+            <point key="canvasLocation" x="1837" y="386"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EHx-xm-J2p"/>
+        <segue reference="fyY-Tj-7hI"/>
     </inferredMetricsTieBreakers>
 </document>

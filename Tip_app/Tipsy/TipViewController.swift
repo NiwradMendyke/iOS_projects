@@ -25,32 +25,41 @@ class TipViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         let mvc = segue.destinationViewController as! ViewController
+        //print(mvc)
         mvc.fromView = true
         mvc.bill_value = toPass
         
         if (segue.identifier == "dough") {
             mvc.tip_amount = 0.4
+            mvc.tip_amount_label = "Frickin Rich"
         }
         if (segue.identifier == "super_generous") {
             mvc.tip_amount = 0.3
+            mvc.tip_amount_label = "Super Generous"
         }
         if (segue.identifier == "sorta_generous") {
             mvc.tip_amount = 0.25
+            mvc.tip_amount_label = "Sorta Generous"
         }
         if (segue.identifier == "above_avg") {
             mvc.tip_amount = 0.2
+            mvc.tip_amount_label = "Above Average"
         }
         if (segue.identifier == "below_avg") {
             mvc.tip_amount = 0.15
+            mvc.tip_amount_label = "Below Average"
         }
         if (segue.identifier == "kinda_cheap") {
             mvc.tip_amount = 0.1
+            mvc.tip_amount_label = "Kinda Cheap"
         }
         if (segue.identifier == "dirt_cheap") {
             mvc.tip_amount = 0.05
+            mvc.tip_amount_label = "Dirt Cheap"
         }
         if (segue.identifier == "seriously") {
             mvc.tip_amount = 0.0
+            mvc.tip_amount_label = "Asshole Mode"
         }
         
         print(toPass)
