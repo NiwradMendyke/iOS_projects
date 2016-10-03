@@ -10,17 +10,23 @@ import UIKit
 import MBProgressHUD
 import AFNetworking
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var collection: UICollectionView!
+    
+    @IBOutlet weak var movieSearch: UISearchBar!
     
     var movies: [NSDictionary]?
+    
+    var filteredMovies: [NSDictionary]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        collection.dataSource = self
+        
+        movieSearch.delegate = self
         
         let request = getRequest()
         
@@ -42,16 +48,17 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                         MBProgressHUD.hideHUDForView(self.view, animated: true)
                     
                         self.movies = responseDictionary["results"] as? [NSDictionary]
-                        self.tableView.reloadData()
+                        self.filteredMovies = self.movies
+                        self.collection.reloadData()
                     }
             }
         })
         task.resume()
-        
+    
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        tableView.insertSubview(refreshControl, atIndex: 0)
+        collection.insertSubview(refreshControl, atIndex: 0)
         
         // Do any additional setup after loading the view.
     }
@@ -61,19 +68,19 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let movies = movies {
-            return movies.count
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let filteredMovies = filteredMovies {
+            return filteredMovies.count
         }
         else {
             return 0
         }
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
+
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell
         
-        let movie = movies![indexPath.row]
+        let movie = filteredMovies![indexPath.row]
         
         let baseurl = "http://image.tmdb.org/t/p/w500"
         if let posterpath = movie["poster_path"] as? String {
@@ -81,12 +88,45 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             cell.posterImage.setImageWithURL(imageurl!)
         }
         
-        cell.titleLabel.text = (movie["title"] as! String)
-        cell.overviewLabel.text = (movie["overview"] as! String)
-        
-        print("row \(indexPath.row)")
+        print("cell \(indexPath)")
         
         return cell
+    }
+    
+    // This method updates filteredData based on the text in the Search Box
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        // When there is no text, filteredData is the same as the original data
+        if searchText.isEmpty {
+            filteredMovies = movies
+        } else {
+            // The user has entered text into the search box
+            // Use the filter method to iterate over all items in the data array
+            // For each item, return true if the item should be included and false if the
+            // item should NOT be included
+            filteredMovies = movies!.filter({(dataItem: NSDictionary) -> Bool in
+                // If dataItem matches the searchText, return true to include it
+                let title = dataItem["title"] as! String
+                
+                if title.rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil {
+                    return true
+                } else {
+                    return false
+                }
+            })
+        }
+        collection.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(movieSearch: UISearchBar) {
+        self.movieSearch.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(movieSearch: UISearchBar) {
+        movieSearch.showsCancelButton = false
+        movieSearch.text = ""
+        movieSearch.resignFirstResponder()
+        filteredMovies = movies
+        collection.reloadData()
     }
     
     // Makes a network request to get updated data
@@ -109,7 +149,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             // ... Use the new data to update the data source ...
                                                                         
             // Reload the tableView now that there is new data
-            self.tableView.reloadData()
+            self.collection.reloadData()
                                                                         
             // Tell the refreshControl to stop spinning
             refreshControl.endRefreshing()
@@ -137,15 +177,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         // Pass the selected object to the new view controller.
         
         let cell = sender as! MovieCell
-        let indexPath = tableView.indexPathForCell(cell)
-        let movie = movies![(indexPath?.row)!]
+        let indexPath = collection.indexPathForCell(cell)
+        let movie = filteredMovies![(indexPath?.row)!]
         
         let detailView = segue.destinationViewController as? DetailViewController
         
         detailView!.movie = movie
     }
 }
-
 
 
 
